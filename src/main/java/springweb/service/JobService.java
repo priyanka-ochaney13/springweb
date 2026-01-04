@@ -28,4 +28,12 @@ public class JobService {
     public JobPost getJobById(int id) {
         return repo.getJobById(id);
     }
+
+    public void updateJob(JobPost jobPost) {
+        repo.updateJob(jobPost);
+    }
+
+    public void deleteJob(int id) {
+        repo.deleteJob(id);
+    }
 }

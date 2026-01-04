@@ -42,7 +42,6 @@ public class JobRepo {
     public void addJob(JobPost job) {
         jobs.add(job);
         System.out.println(jobs);
-
     }
 
     public JobPost getJobById(int id) {
@@ -52,6 +51,27 @@ public class JobRepo {
                 }
         }
         return null;
+    }
+
+    public void updateJob(JobPost jobPost) {
+        for (JobPost job: jobs) {
+                if(job.getPostId() == jobPost.getPostId()) {
+                        job.setPostProfile(jobPost.getPostProfile());
+                        job.setPostDesc(jobPost.getPostDesc());
+                        job.setPostTechStack(jobPost.getPostTechStack());
+                        job.setReqExperience(jobPost.getReqExperience());
+                }
+        }
+    }
+
+    public boolean deleteJob(int id) {
+        for (JobPost job: jobs) {
+                if (job.getPostId() == id) {
+                        jobs.remove(id);
+                        return true;
+                }
+        }
+        return false;
     }
 }
 
