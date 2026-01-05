@@ -60,4 +60,16 @@ public class JobRestController {
     //we can also use other libraries like gson, jsonb etc. by adding their dependencies and configuring them in the configuration class.
 
     //working of reqbody annotation: when we use @RequestBody annotation on a method parameter, spring boot uses jackson to convert the json received in the request body to a java object and bind it to the method parameter.
+
+
+    @GetMapping("load")
+    public Boolean loadData() {
+        jobService.load();
+        return true;
+    }
+
+    @GetMapping("/jobs/search/{keyword}")
+    public List<JobPost> searchJobs(@PathVariable("keyword") String keyword) {
+        return jobService.search(keyword);
+    }
 }
